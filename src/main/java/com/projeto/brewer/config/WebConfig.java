@@ -48,8 +48,8 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
 		return engine;
 	}
 	
-	@Bean
-	public ITemplateResolver templateResolver() {
+	
+	private ITemplateResolver templateResolver() {
 		SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();
 		resolver.setApplicationContext(applicationContext);
 		resolver.setPrefix("classpath:/templates/");
