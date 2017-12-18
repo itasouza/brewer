@@ -19,11 +19,16 @@ import org.thymeleaf.templateresolver.ITemplateResolver;
 
 import com.projeto.brewer.controller.CervejasController;
 
+
+
+
 @Configuration
 @ComponentScan(basePackageClasses = { CervejasController.class })
 @EnableWebMvc
 public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
    
+	//https://github.com/algaworks/curso-sistemas-web-com-spring-javascript-bootstrap
+	
 	private ApplicationContext applicationContext;
 	
 	@Override
@@ -40,12 +45,13 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
 		return  resolver;
 	}
 	
-	
 	@Bean
 	public TemplateEngine templateEngine() {
 		SpringTemplateEngine engine = new SpringTemplateEngine();
 		engine.setEnableSpringELCompiler(true);
-		engine.setTemplateResolver(templateResolver());
+		engine.setTemplateResolver(templateResolver());	 
+		
+
 		return engine;
 	}
 	
@@ -70,4 +76,5 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
 
 	
 	
+   
 }
