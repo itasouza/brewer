@@ -1,6 +1,5 @@
 package com.projeto.brewer.controller;
 
-import javax.jws.WebParam.Mode;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -16,8 +15,8 @@ import com.projeto.brewer.model.Cerveja;
 public class CervejasController {
     
 	@RequestMapping("/cervejas/novo")
-	public String novo() {
-		return "cerveja/CadastroCerveja";
+	public String novo(Cerveja cerveja) {
+		return "cerveja/cadastro-cerveja";
 	}
 	
 	
@@ -25,8 +24,8 @@ public class CervejasController {
 	public String cadastrar(@Valid Cerveja cerveja, BindingResult result, Model model, RedirectAttributes attributes) {		
 		
 		if(result.hasErrors()) {
-			model.addAttribute("mensagem", "Erro no formulário");
-			return "cerveja/CadastroCerveja";
+			model.addAttribute(cerveja);
+			return novo(cerveja);
 		}
 		
 		//salvar no banco de dados
@@ -37,4 +36,5 @@ public class CervejasController {
 	}
 	
 	
+
 }
