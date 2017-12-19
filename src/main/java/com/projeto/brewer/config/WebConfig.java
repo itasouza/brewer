@@ -19,9 +19,12 @@ import org.thymeleaf.templateresolver.ITemplateResolver;
 
 import com.projeto.brewer.controller.CervejasController;
 
+import nz.net.ultraq.thymeleaf.LayoutDialect;
 
 
 
+
+@SuppressWarnings("deprecation")
 @Configuration
 @ComponentScan(basePackageClasses = { CervejasController.class })
 @EnableWebMvc
@@ -50,8 +53,8 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
 		SpringTemplateEngine engine = new SpringTemplateEngine();
 		engine.setEnableSpringELCompiler(true);
 		engine.setTemplateResolver(templateResolver());	 
-		
 
+		//engine.addDialect(new LayoutDialect());
 		return engine;
 	}
 	
